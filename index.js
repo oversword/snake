@@ -17,17 +17,20 @@ window.onresize = () => {
 
 
 let state = newState()
-$canvas.addEventListener('mousemove', (ev) => {
+const handleMove = (ev) => {
+    const center = ev.touches ? ev.touches[0] : ev
     const renderCenter = {
         x: $canvas.width / 2,
         y: $canvas.height / 2
     }
     const delta = {
-        x: ev.clientX - renderCenter.x,
-        y: ev.clientY - renderCenter.y
+        x: center.clientX - renderCenter.x,
+        y: center.clientY - renderCenter.y
     }
     state.actors[0].direction = Math.atan2(delta.y, delta.x)
-})
+}
+$canvas.addEventListener('mousemove', handleMove)
+$canvas.addEventListener("touchmove", handleMove);
 
 document.addEventListener('keydown', (event) => {
     if (event.code === 'Escape') {
