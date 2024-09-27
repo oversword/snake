@@ -63,6 +63,9 @@ const stopGame = () => {
     realtime += Date.now() - startTime
     gameLoopTimeout = null
     renderLoopTimeout = null
+    const context = $canvas.getContext('2d')
+    context.font = "60px sans-serif"
+    context.fillText('Paused', $canvas.width / 2, $canvas.height / 2)
 }
 const startGame = () => {
     startTime = Date.now()

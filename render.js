@@ -34,7 +34,7 @@ export const render = ($canvas, state) => {
 
     context.fillStyle = '#000'
     context.fillRect(0,0,$canvas.width,$canvas.height)
-    context.fillStyle = '#fff'
+    context.fillStyle = '#bbb'
     context.fillRect(renderOffset.x, renderOffset.y, state.width, state.height)
 
     state.actors.forEach((actor, index) => {
